@@ -1162,4 +1162,73 @@ Enabler.exit("Court 4", "https://docs.google.com/spreadsheets/d/e/2PACX-1vSXeutT
   });
 })();
 </script>
+<script type="text/javascript" id="chk-drag-scroll">
+(function(){
+  /* Drag-to-scroll for the main banner page (.gwd-page-content.banner inside #banner-page) */
+  function initDragScroll(){
+    var page = document.querySelector('#banner-page .gwd-page-content.banner');
+    if(!page) return;
+
+    var isDown = false;
+    var startY = 0;
+    var startScrollTop = 0;
+    var moved = false;
+    var DRAG_THRESHOLD = 5; // px before we consider it a scroll drag
+
+    /* ── Touch (mobile) ── */
+    page.addEventListener('touchstart', function(e){
+      if(e.touches.length !== 1) return;
+      isDown = true;
+      moved = false;
+      startY = e.touches[0].clientY;
+      startScrollTop = page.scrollTop;
+    }, {passive: true});
+
+    page.addEventListener('touchmove', function(e){
+      if(!isDown || e.touches.length !== 1) return;
+      var dy = startY - e.touches[0].clientY;
+      if(!moved && Math.abs(dy) < DRAG_THRESHOLD) return;
+      moved = true;
+      page.scrollTop = startScrollTop + dy;
+      /* don't call preventDefault — let iOS native scroll handle inertia */
+    }, {passive: true});
+
+    page.addEventListener('touchend', function(){
+      isDown = false;
+    }, {passive: true});
+
+    /* ── Mouse / pointer (desktop preview) ── */
+    page.addEventListener('mousedown', function(e){
+      isDown = true;
+      moved = false;
+      startY = e.clientY;
+      startScrollTop = page.scrollTop;
+      page.style.cursor = 'grabbing';
+      e.preventDefault();
+    });
+
+    window.addEventListener('mousemove', function(e){
+      if(!isDown) return;
+      var dy = startY - e.clientY;
+      if(!moved && Math.abs(dy) < DRAG_THRESHOLD) return;
+      moved = true;
+      page.scrollTop = startScrollTop + dy;
+      e.preventDefault();
+    });
+
+    window.addEventListener('mouseup', function(){
+      if(!isDown) return;
+      isDown = false;
+      page.style.cursor = '';
+    });
+  }
+
+  /* Run after the ad initialises (GWD fires adinitialized) */
+  document.addEventListener('adinitialized', initDragScroll);
+  /* Fallback: also try on DOMContentLoaded */
+  document.addEventListener('DOMContentLoaded', function(){
+    setTimeout(initDragScroll, 800);
+  });
+})();
+</script>
 </body></html>
