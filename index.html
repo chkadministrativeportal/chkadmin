@@ -602,6 +602,11 @@ c=d.createElement("head");e.parentNode.insertBefore(c,e)}d=d.createElement("styl
           <p class="gwd-gen-1t0ygwdanimation gwd-p-1g1t">Venue Calendars&nbsp; &nbsp;&nbsp;</p>
           <gwd-gesture id="6_1" class="gwd-gesture-16bm gwd-gen-10dmgwdanimation"></gwd-gesture>
           <gwd-image id="calendar_2" source="calendar_2.png" scaling="stretch" class="gwd-image-1tdl gwd-gen-1k5xgwdanimation"></gwd-image>
+          <!-- AV Inventory Button -->
+          <div id="av-inv-btn" onclick="window.open('https://chkadministrativeportal.github.io/CHK-Admin-AV-Inventory/','_blank')" style="position:absolute;font-family:Montserrat;font-size:20px;text-align:right;color:#fff;background-color:#06402b;border-radius:20px;width:90%;height:7%;line-height:50px;left:5%;top:95%;cursor:pointer;padding-right:14px;box-sizing:border-box;">Audio Visual Inventory&nbsp; &nbsp;&nbsp;</div>
+          <div style="position:absolute;width:35px;height:35px;top:95.5%;left:10%;pointer-events:none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:100%;height:100%"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
         </div>
       <div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 1px; z-index: 9000; background-color: rgb(0, 0, 0);"></div><div style="position: absolute; right: 0px; top: 0px; width: 1px; height: 100%; z-index: 9000; background-color: rgb(0, 0, 0);"></div><div style="position: absolute; left: 0px; bottom: 0px; width: 100%; height: 1px; z-index: 9000; background-color: rgb(0, 0, 0);"></div><div style="position: absolute; left: 0px; top: 0px; width: 1px; height: 100%; z-index: 9000; background-color: rgb(0, 0, 0);"></div></gwd-page>
       <gwd-page id="banner-page_4" class="gwd-page-wrapper gwd-lightbox gwd-page-1ntj" data-gwd-width="100%" data-gwd-height="100%">
@@ -837,6 +842,8 @@ Enabler.exit("Court 4", "https://docs.google.com/spreadsheets/d/e/2PACX-1vSXeutT
     {l:'Stock Dashboard',     t:'Dashboard', m:true,  fn:function(){ doExit('STOCK DASHBOARD','https://script.google.com/a/macros/up.edu.ph/s/AKfycbxBPAe_1hrBIPJvqXWNuOi9Rlbp5fxZ2u0SL1_OYv49DRZJUScKXztV10ex6ADLgcT-Yw/exec?page=dashboard'); }},
     // Venue Calendars
     {l:'Venue Calendars',         t:'Page',  m:false, fn:function(){ doPage('banner-page_4'); }},
+    // Audio Visual Inventory
+    {l:'Audio Visual Inventory',  t:'Link',  m:false, fn:function(){ doExit('Audio Visual Inventory','https://chkadministrativeportal.github.io/CHK-Admin-AV-Inventory/'); }},
     {l:'Baseball Field',          t:'Venue', m:true,  fn:function(){ doExitOverride('Baseball Field_1','https://docs.google.com/spreadsheets/d/e/2PACX-1vSXeutTA06JvvIqDmAr7g14ZaOYrxOUeNRbNMrVD_1ETNo_oA8dQmmUheN_KwPQ6IomCjZgr7q5fO6K/pubhtml?gid=593929024&single=true'); }},
     {l:'Baseball Garden',         t:'Venue', m:true,  fn:function(){ doExitOverride('Baseball Garden','https://docs.google.com/spreadsheets/d/e/2PACX-1vSXeutTA06JvvIqDmAr7g14ZaOYrxOUeNRbNMrVD_1ETNo_oA8dQmmUheN_KwPQ6IomCjZgr7q5fO6K/pubhtml?gid=567935148&single=true'); }},
     {l:'Dugout 1',                t:'Venue', m:true,  fn:function(){ doExitOverride('Dugout 1','https://docs.google.com/spreadsheets/d/e/2PACX-1vSXeutTA06JvvIqDmAr7g14ZaOYrxOUeNRbNMrVD_1ETNo_oA8dQmmUheN_KwPQ6IomCjZgr7q5fO6K/pubhtml?gid=87197056&single=true'); }},
